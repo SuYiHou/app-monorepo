@@ -1,0 +1,13 @@
+<configuration>
+    <property name="SERVICE" value="iam"/>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                {"ts":"%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}","level":"%level","service":"${SERVICE}","traceId":"%X{traceId}","logger":"%logger{36}","msg":"%replace(%msg){'\"','\\\"'}"}%n
+            </pattern>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
